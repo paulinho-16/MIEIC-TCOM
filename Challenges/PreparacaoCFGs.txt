@@ -1,0 +1,34 @@
+1) a) Para que uma CFG seja ambígua, deve haver uma string w tal que exista duas syntax trees diferentes com raiz E e folhas (yield) w. Por exemplo, a string a+a+a possui duas
+syntax trees diferentes. Logo, concluímos que é ambígua.
+						E					E
+					      / | \				      / | \
+					     E  +  E				     E  +  E
+				a+(a+a)	     |   / | \				   / | \   |
+					     I  E  +  E				  E  +  E  I	    (a+a)+a
+					     |  |     | 			  |	|  |
+					     a  I     I				  I	I  a 
+						|     |				  |	|
+						a     a				  a     a	
+	
+   b) LeftMost Derivations: 
+	E -> (E) -> (E+E) -> ((E)+E) -> ((I)+E) -> ((a)+E) -> ((a)+(E)) -> ((a)+(ExE)) -> ((a)+(IxE)) -> ((a)+(axE)) -> ((a)+(axI)) -> ((a)+(axb))
+				
+      Syntax Tree:						E
+							     /	|  \	
+							    (	E   )	
+							      /	|  \	
+							     E	+    E	
+							   / | \   / | \
+							  (  E	) (  E	)
+							     |     / | \
+							     I	  E  x	E
+							     |    |     |
+							     a	  I	I
+								  |     |
+								  a	b
+		
+2) a) G2 continua a ser ambígua e não representa a linguagem de G1.
+   b) G3 continua a ser ambígua e não representa a linguagem de G1.
+   c) G4 não respeita a ordem de prioridade dos operadores.
+   d) G5 respeita a ordem de prioridade dos operadores e é a mesma sintaxe de G1 porque a sequência de operadores da mesma prioridade é "left associative" e x tem prioridade
+sobre o +, aplicado antes de +, à esquerda e à direita.

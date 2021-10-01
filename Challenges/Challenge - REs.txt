@@ -1,0 +1,18 @@
+a) Hipótese: (01+10)(01+10)* tem numero igual de 0s e 1s. O elemento (01+10)* pode ser repetido 0 ou mais vezes, portanto reformulemos a hipótese para:
+	(01+10)(01+10)^n, em que n = 0,1,2,3,4...
+
+Caso Base: Trata-se do caso em que n = 0, logo ficariamos com (01+10), que tanto pode ser a string 01 como a string 10, e ambas têm numero igual de 0s e 1s, daí podermos
+concluir que (01+10) tem numero igual de 0s e 1s. Fica provado entao o caso base.
+
+Passo Indutivo: Verificaremos agora a hipótese para n+1. Isto é, queremos saber se (01+10)(01+10)^(n+1) tambem possui numero igual de 0s e 1s.
+
+(01+10)(01+10)^(n+1) = (01+10)(01+10)^n(01+10) = ((01+10)(01+10)^n)(01+10) Pela hipotese,((01+10)(01+10)^n) tem numero igual de 0s e 1s. Ora, a string resultante da
+concatenação desta com (01+10) tanto pode ser ((01+10)(01+10)^n)(01) como ((01+10)(01+10)^n)(10). Em ambos os casos o numero de 1s e 0s é igual, sendo que apenas aumentou em
+1 unidade ( se numero de 0s/numero de 1s era m, passou a ser m+1).
+
+Logo, (01+10)(01+10)^(n+1) tem igual numero de 0s e 1s, pelo que fica assim provado, pelo método de indução, que todas as strings pertencentes a L((01+10)(01+10)*) têm numero
+igual de 0s e de 1s.
+
+b) Não é possível obter uma expressão regular que represente a linguagem de todas as strings pertencentes ao alfabeto {0,1} com um numero igual de 0s e 1s. Isto porque essa
+linguagem não é regular, pelo que não pode ser traduzida por uma expressão regular. Deve-se à incapacidade dos autómatas de armazenar memória, dependendo do tamanho do input, 
+uma vez que seria necessário saber a certo ponto, quantos 0s e quantos 1s contém a string para saber se seria ou não aceite.
